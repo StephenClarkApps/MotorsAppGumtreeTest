@@ -7,7 +7,6 @@
 
 import Combine
 import Foundation
-import SwifterSwift
 
 final class CarsDataService: CarsFetchingService {
     
@@ -26,10 +25,8 @@ final class CarsDataService: CarsFetchingService {
         // hence we can either restrict the user from entering spaces or remove the spaces since
         // there is no way to actually send them up in this instance.
         
-        // in this case I'm forced to use a custom filter for  instead of .urlEncoded (which percent encodes spaces)
+        // in this case I'm I could to use a custom ChracterSet filter for  instead of .urlEncoded (which percent encodes spaces)
         
-        // Alternatively I catch it at form validation
-
         /*
         let numbersAndLettersOnly: CharacterSet = CharacterSet.decimalDigits.union(CharacterSet.letters)
         
@@ -37,6 +34,8 @@ final class CarsDataService: CarsFetchingService {
         let modelWithOnlyCharsBackendAccepts = String(model.unicodeScalars.filter(numbersAndLettersOnly.contains))
          */
         
+        // Alternatively, I can use form validation, which is the choice I have made in this case.
+
         components.queryItems = [URLQueryItem(name: "make", value: make), URLQueryItem(name: "model", value: model), URLQueryItem(name: "year", value: year)]
         
         return components

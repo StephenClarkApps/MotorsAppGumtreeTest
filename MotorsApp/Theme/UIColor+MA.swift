@@ -9,7 +9,6 @@ import UIKit
 import Foundation
 import SwifterSwift
 
-// MARK: - Shared Colors
 extension UIColor {
     
     struct Theme {

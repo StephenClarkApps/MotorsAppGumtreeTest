@@ -22,13 +22,14 @@ class CarsViewModel: ObservableObject {
     
     // Alert parameters
     @Published var showAlert: Bool = false
-//    @Published var alertText: String = ""
-//    @Published var alertDecription: String = ""
+
     
     public func setCars(cars: Cars) {
         self.cars = cars
     }
 
+    
+    /// Trigger a querry to our network data service layer to check for cars
     public func searchForCars() {
         
         cancellable = CarsDataService().fetchCars(make: self.make, model: self.model, year: String(self.year)).sink(receiveCompletion: { [weak self] completion in

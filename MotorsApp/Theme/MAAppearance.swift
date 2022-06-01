@@ -21,16 +21,15 @@ class MAAppearance {
         setupNavigationBar()
     }
     
-    static func setupTableView() {
+    private static func setupTableView() {
         let tableViewApperance = UITableView.appearance()
         tableViewApperance.separatorInset = UIEdgeInsets.zero
         tableViewApperance.separatorColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1.00)
     }
     
-    // Motors logo color is a green color with a hash something like #69b783
-    //
-    
-    static func setupTabBarApperance() {
+    // Motors logo brNS color is a green color with a hash something like #69b783
+
+    private static func setupTabBarApperance() {
 
         let selectedIconColor = UIColor.white
 
@@ -56,7 +55,7 @@ class MAAppearance {
         
     }
     
-    static func setupNavigationBar() {
+    private static func setupNavigationBar() {
         
         
         let appearance = UINavigationBar.appearance()
@@ -73,7 +72,8 @@ class MAAppearance {
         let nonDotBarApperance = UINavigationBarAppearance()
         nonDotBarApperance.configureWithOpaqueBackground()
         nonDotBarApperance.titleTextAttributes =  [.foregroundColor: UIColor.white,
-                                                   NSAttributedString.Key.font: BumpFontSizes ? UIFont.Bold.size7 : UIFont.Bold.size6]
+                                                   NSAttributedString.Key.font: UIFont.Bold.size4]
+        
         nonDotBarApperance.backgroundColor = primaryTintColor
         appearance.standardAppearance = nonDotBarApperance
         appearance.scrollEdgeAppearance = nonDotBarApperance
@@ -92,7 +92,7 @@ class MAAppearance {
         
         // Attributes for page title
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white,
-                                          NSAttributedString.Key.font: BumpFontSizes ? UIFont.Bold.size7 : UIFont.Bold.size6]
+                                          NSAttributedString.Key.font: UIFont.Bold.size4]
 
         appearance.barStyle = .black
         appearance.isTranslucent = false
@@ -117,7 +117,7 @@ class MAAppearance {
 
         // BarButtonItem attributes at the top left and right of our view controllers
         let attributes = [.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: BumpFontSizes ? UIFont.Body.size4 : UIFont.Body.size3] // sizeed
+            NSAttributedString.Key.font: UIFont.Body.size3] 
         let barButtonAppearance = UIBarButtonItem.appearance()
 
         barButtonAppearance.setTitleTextAttributes(attributes, for: .application)

@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct ResultsView: View {
-    @Binding var cars: Cars
-    
-    //@EnvironmentObject var carsListViewModel: CarsViewModel
-        
-    
+    @State var cars: Cars
+
    // @Environment(\.dismiss) private var dismiss
     let array = ["carA", "carB", "carC", "carD", "carE"]
     
@@ -23,14 +20,15 @@ struct ResultsView: View {
     }
 }
 
+// MARK: - PREVIEW
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(cars: .constant(Cars(searchResults: [SearchResult(id: "123",
+        ResultsView(cars: Cars(searchResults: [SearchResult(id: "123",
                                                             name: "Car Name",
                                                             title: "Some kind of title string.",
                                                             make: "Nissan",
                                                             model: "Micra",
                                                             year: "2021",
-                                                            price: "£3000")])))
+                                                            price: "£3000")]))
     }
 }

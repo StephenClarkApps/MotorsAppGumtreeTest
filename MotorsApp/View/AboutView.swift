@@ -29,6 +29,7 @@ struct AboutView: View {
   }
 }
 
+// MARK: - PREVIEW
 struct InfoView_Previews: PreviewProvider {
   static var previews: some View {
     AboutView()
