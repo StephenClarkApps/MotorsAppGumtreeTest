@@ -12,6 +12,7 @@ import ActivityIndicatorView
 struct SearchView: View {
     
     // MARK: - PROPERTIES
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var carsListViewModel: CarsViewModel
     
     // Alert related objects
@@ -92,10 +93,10 @@ struct SearchView: View {
                             Text("Year (tap to change):").modifier(InLineTitleModifier())
                             
                             Picker(selection: $carsListViewModel.year) {
-                                ForEach(1950...2022, id: \.self) { value in
+                                ForEach(2001...2022, id: \.self) { value in
                                     Text(String(value))
                                         .tag(value)
-                                        .font(.body)
+                                        //.font(.body)
                                 }
                             } label: {
                                 Text(String(carsListViewModel.year))
@@ -133,18 +134,25 @@ struct SearchView: View {
                         }
                     }
                     
+           
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
+                    
                     // Using the technique of isActive on a navigation link
                     // for our segues (on device this is smooth)
                     NavigationLink(isActive: $carsListViewModel.requestSucceded) {
-                        // Inject cars into ResultsView (passing the value since the car's shouldn't change once injected)
+                        // pass in value only
                         ResultsView(cars: carsListViewModel.cars)
                     } label: {
                         EmptyView()
-                    }.onChange(of: carsListViewModel.requestSucceded) { newValue in
+                    }
+                    .onChange(of: carsListViewModel.requestSucceded) { newValue in
                         if newValue {
                             showLoadingIndicator = false
                         }
                     }
+                    
                     
                     Spacer()
                     

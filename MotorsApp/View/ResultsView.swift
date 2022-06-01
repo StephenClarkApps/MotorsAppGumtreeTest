@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ResultsView: View {
+    
+//    @Environment(\.presentationMode) var presentationMode
+    //@Binding var cars: Cars
     @State var cars: Cars
 
    // @Environment(\.dismiss) private var dismiss
@@ -15,8 +18,9 @@ struct ResultsView: View {
     
     var body: some View {
         List(self.cars.searchResults, id: \.self) { car in
-        CarInfoView(car: car, carImageString: array.randomElement()!)
-        }.navigationBarTitle(Text("Results"))
+            CarInfoView(car: car, carImageString: array.randomElement()!)
+        }
+        .navigationBarTitle(Text("Results"))
     }
 }
 

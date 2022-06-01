@@ -12,7 +12,7 @@ import Foundation
 struct AboutView: View {
   // MARK: - PROPERTIES
   @Environment(\.presentationMode) var presentationMode
-  
+
   var body: some View {
       
       NavigationView {
