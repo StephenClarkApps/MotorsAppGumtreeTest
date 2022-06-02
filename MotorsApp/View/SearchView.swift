@@ -134,7 +134,7 @@ struct SearchView: View {
                         }
                     }
                     
-           
+                    // Apparently this solves an issue where the segue lags
                     NavigationLink(destination: EmptyView()) {
                         EmptyView()
                     }
